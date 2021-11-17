@@ -68,6 +68,11 @@ export const DraxList = <T extends unknown>(
 		onScroll: onScrollProp,
 		itemsDraggable = true,
 		lockItemDragsToMainAxis = false,
+
+		onReceiveDragEnter,
+		onReceiveDragExit,
+		onReceiveDragDrop,
+		onReceiveDragOver,
 		...props
 	}: PropsWithChildren<DraxListProps<T>>,
 ): JSX.Element => {
@@ -222,6 +227,10 @@ export const DraxList = <T extends unknown>(
 					{...(viewPropsExtractor?.(item) ?? {})}
 					onDragEnd={resetDraggedItem}
 					onDragDrop={resetDraggedItem}
+					onReceiveDragEnter={onReceiveDragEnter}
+					onReceiveDragExit={onReceiveDragExit}
+					onReceiveDragOver={onReceiveDragOver}
+					onReceiveDragDrop={onReceiveDragDrop}
 					onMeasure={(measurements) => {
 						// console.log(`measuring [${index}, ${originalIndex}]: (${measurements?.x}, ${measurements?.y})`);
 						itemMeasurementsRef.current[originalIndex] = measurements;

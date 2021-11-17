@@ -850,7 +850,7 @@ export interface DraxListOnItemReorder<TItem> {
 }
 
 /** Props for a DraxList; extends standard FlatList props */
-export interface DraxListProps<TItem> extends Omit<FlatListProps<TItem>, 'renderItem'>, DraxAutoScrollProps {
+export interface DraxListProps<TItem> extends Omit<FlatListProps<TItem>, 'renderItem'>, DraxAutoScrollProps, DraxProtocol {
 	/** Unique drax view id, auto-generated if omitted */
 	id?: string;
 
